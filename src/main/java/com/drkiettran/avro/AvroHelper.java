@@ -26,12 +26,14 @@ public class AvroHelper {
 	private HashMap<String, User> users = new HashMap<String, User>();
 
 	private Schema schema = new Schema.Parser().parse(new File("user.avsc"));
-	private File file = new File("users.avro");
+	
 	private DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<GenericRecord>(schema);
 	private DataFileWriter<GenericRecord> dataFileWriter = new DataFileWriter<GenericRecord>(datumWriter);
 
 	public AvroHelper() throws IOException {
 		logger.info("Constructing ...");
+		File file = new File("users.avro");
+		
 		if (!file.exists()) {
 			dataFileWriter.create(schema, file);
 		} else {

@@ -7,9 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AvroApplication {
 
-	@Autowired
-	private AvroHelper avroHelper;
-	
 	public static void main(String[] args) {
 		SpringApplication.run(AvroApplication.class, args);
 	}

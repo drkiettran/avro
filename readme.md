@@ -61,3 +61,37 @@ The application requires the following schema stored in a file `user.avsc`.
  ]
 }
 ```
+
+## Build & run
+This application requires Java 11. Therefore, in my case of using Ubuntu 18.04, I am setting 
+the Java environment using the following commands:
+
+```shell
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
+sudo update-alternatives --config java
+```
+
+Run this command to build:
+
+```shellscript
+mvn clean package
+```
+
+To run the program:
+
+```shell
+mvn clean spring-boot:run
+```
+
+You can also run after the build command `mvn clean package` as follows:
+
+```shell
+java -jar target/avro-0.0.1-SNAPSHOT.jar
+```
+
+## Override 
+Use `-Dserver.port=xxxx` to override port number. So, run like this:
+
+```shell
+java -Dserver.port=9090 -jar target/avro-0.0.1-SNAPSHOT.jar
+```
